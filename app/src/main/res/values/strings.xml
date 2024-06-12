@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CognitiveAssestmentApp</string>
+    <string name="err_msg_enter_email">Please enter your email</string>
+    <string name="err_msg_enter_password">Please enter your password</string>
+    <string name="err_msg_enter_first_name">Please input your name</string>
+    <string name="err_msg_enter_last_name">Please input your last name\n</string>
+    <string name="err_msg_enter_repeat_password">Please repeat your password</string>
+    <string name="err_msg_password_mismatch">Passwords do not match!</string>
+    <string name="err_msg_enter_dob">Please enter your date of birth</string>
 </resources>

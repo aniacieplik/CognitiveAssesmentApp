@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="snackBarSuccessful">#47C918</color>
+    <color name="snackBarError">#B91C10</color>
 </resources>
