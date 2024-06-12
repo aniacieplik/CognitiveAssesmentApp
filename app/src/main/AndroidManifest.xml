@@ -13,6 +13,21 @@
         android:theme="@style/Theme.CognitiveAssestmentApp"
         tools:targetApi="31">
         <activity
+            android:name=".games.TYM.ComparisonQuestions"
+            android:exported="false" />
+        <activity
+            android:name=".games.TYM.Animals"
+            android:exported="false" />
+        <activity
+            android:name=".games.TYM.MathQuestions"
+            android:exported="false" />
+        <activity
+            android:name=".games.TYM.Questions"
+            android:exported="false" />
+        <activity
+            android:name=".games.TYM.CopySentence"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
