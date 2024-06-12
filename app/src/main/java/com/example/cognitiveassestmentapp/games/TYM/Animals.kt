@@ -20,7 +20,7 @@ class Animals : AppCompatActivity() {
         val animal5Input: EditText = findViewById(R.id.animal5Input)
         val submitAnimalsButton: Button = findViewById(R.id.submitAnimalsButton)
 
-        val validAnimals = setOf("swan", "salmon", "scorpion", "sea lion", "seal", "skunk", "snail", "snake", "spider", "squid", "squirrel", "stingray", "sparrow", "sheep", "shark")
+        val validAnimals = setOf("swan", "salmon", "scorpion", "sea lion", "seal", "skunk", "snail", "snake", "spider", "squid", "squirrel", "stingray", "sparrow", "sheep", "shark", "snow leopard", "salamander", "sardine", "scallop", "seahorse", "shrimp", "sloth", "starfish")
 
         submitAnimalsButton.setOnClickListener {
             val animals = listOf(
