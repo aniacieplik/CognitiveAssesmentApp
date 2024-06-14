@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/mis_rules_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You will be shown 4 items and each item belongs to a different category. You will be asked to indicate which of the words belongs in the stated category. You will have up to 5 attempts. Press the button to start the test"
+        android:layout_centerInParent="true"
+        android:layout_margin="16dp"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/start_mis_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mis_rules_textview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Start Test" />
+
+</RelativeLayout>

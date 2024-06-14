@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="snackBarSuccessful">#47C918</color>
     <color name="snackBarError">#B91C10</color>
+    <color name="yellow">#B4FFEB3B</color>
+    <color name="green">#41AD43</color>
+    <color name="red">#C23126</color>
 </resources>

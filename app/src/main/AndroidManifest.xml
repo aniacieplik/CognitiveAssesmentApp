@@ -42,6 +42,12 @@
         <activity
             android:name=".games.TYM.BasicQuestions"
             android:exported="false" />
+        <activity android:name=".games.MIS.DistractorActivity"
+            android:exported="false" />
+        <activity android:name=".games.MIS.ItemActivity"
+            android:exported="false" />
+        <activity android:name=".games.MIS.MisActivity"
+            android:exported="false" />
         <activity
             android:name=".registration.MainActivity"
             android:exported="true">

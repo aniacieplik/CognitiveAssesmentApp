@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Word TextViews -->
+    <TextView
+        android:id="@+id/word1_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_margin="16dp"
+        android:text="Word1"
+        android:background="@drawable/word_background"
+        android:clickable="true"
+        android:onClick="onWordClicked" />
+
+    <!-- Add TextViews for other words similarly -->
+    <TextView
+        android:id="@+id/word2_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_margin="16dp"
+        android:text="Word2"
+        android:background="@drawable/word_background"
+        android:clickable="true"
+        android:onClick="onWordClicked"
+        android:layout_below="@id/word1_textview" />
+
+    <!-- Add TextViews for other words similarly -->
+    <TextView
+        android:id="@+id/word3_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_margin="16dp"
+        android:text="Word3"
+        android:background="@drawable/word_background"
+        android:clickable="true"
+        android:onClick="onWordClicked"
+        android:layout_below="@id/word2_textview" />
+
+
+    <TextView
+        android:id="@+id/word4_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_margin="16dp"
+        android:text="Word4"
+        android:background="@drawable/word_background"
+        android:clickable="true"
+        android:onClick="onWordClicked"
+        android:layout_below="@id/word3_textview" />
+
+    <!-- Category TextViews -->
+    <TextView
+        android:id="@+id/category1_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_margin="16dp"
+        android:text="Category1"
+        android:background="@drawable/category_background"
+        android:clickable="true"
+        android:onClick="onCategoryClicked"
+        android:layout_below="@id/word4_textview" />
+
+    <!-- Add TextViews for other categories similarly -->
+    <TextView
+        android:id="@+id/category2_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_margin="16dp"
+        android:text="Category2"
+        android:background="@drawable/category_background"
+        android:clickable="true"
+        android:onClick="onCategoryClicked"
+        android:layout_below="@id/category1_textview" />
+
+    <!-- Add TextViews for other categories similarly -->
+    <TextView
+        android:id="@+id/category3_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_margin="16dp"
+        android:text="Category3"
+        android:background="@drawable/category_background"
+        android:clickable="true"
+        android:onClick="onCategoryClicked"
+        android:layout_below="@id/category2_textview" />
+
+    <!-- Add TextViews for other categories similarly -->
+    <TextView
+        android:id="@+id/category4_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_margin="16dp"
+        android:text="Category4"
+        android:background="@drawable/category_background"
+        android:clickable="true"
+        android:onClick="onCategoryClicked"
+        android:layout_below="@id/category3_textview" />
+
+    <!-- Match Button -->
+    <Button
+        android:id="@+id/match_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Match"
+        android:layout_below="@id/category4_textview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" />
+
+</RelativeLayout>
