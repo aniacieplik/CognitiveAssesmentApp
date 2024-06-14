@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cognitiveassestmentapp.R
+import com.example.cognitiveassestmentapp.statistics.StatisticsTYM
 
 class CopySentence : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,8 +27,9 @@ class CopySentence : AppCompatActivity() {
             }
 
             // Save statistics
-            saveStatistics(correctAnswers, 1)
+            saveStatistics(correctAnswers, 1) // 1 is the total number of questions in this activity
 
+            // Proceed to the next activity
             val intent = Intent(this, GeneralQuestions::class.java)
             startActivity(intent)
         }

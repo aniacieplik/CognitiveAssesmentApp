@@ -36,11 +36,11 @@ class ComparisonQuestions : AppCompatActivity() {
             val lionWolfAnswer = lionWolfInput.text.toString().trim().lowercase()
 
             var correctAnswers = 0
-            if (carrotPotatoAnswer == "vegetable") correctAnswers++
-            if (lionWolfAnswer == "animal") correctAnswers++
+            if (carrotPotatoAnswer == "vegetable" || carrotPotatoAnswer == "vegetables") correctAnswers++
+            if (lionWolfAnswer == "animal" || lionWolfAnswer == "animals") correctAnswers++
 
             // Save statistics
-            saveStatistics(correctAnswers, 2) // 2 is the total number of comparison questions
+            saveStatistics(correctAnswers, 2)
 
             val intent = Intent(this, SentenceAgain::class.java)
             startActivity(intent)

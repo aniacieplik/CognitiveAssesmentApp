@@ -11,40 +11,28 @@
         android:text="Statistics:" />
 
     <TextView
-        android:id="@+id/correctAnswersTextView"
+        android:id="@+id/basicCorrectAnswersTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Correct Answers: " />
+        android:text="Correct Answers for Basic Questions: " />
 
     <TextView
-        android:id="@+id/totalQuestionsTextView"
+        android:id="@+id/totalBasicQuestionsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total Questions: " />
+        android:text="Total Basic Questions: " />
 
     <TextView
-        android:id="@+id/animalsCorrectAnswersTextView"
+        android:id="@+id/copySentenceCorrectAnswersTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Correct Answers for Animals: " />
+        android:text="Correct Answers for Copy Sentence: " />
 
     <TextView
-        android:id="@+id/totalAnimalsQuestionsTextView"
+        android:id="@+id/totalCopySentenceQuestionsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total Animal Questions: " />
-
-    <TextView
-        android:id="@+id/mathCorrectAnswersTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correct Answers for Math: " />
-
-    <TextView
-        android:id="@+id/totalMathQuestionsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Math Questions: " />
+        android:text="Total Copy Sentence Questions: " />
 
     <TextView
         android:id="@+id/questionsCorrectAnswersTextView"
@@ -59,6 +47,30 @@
         android:text="Total General Questions: " />
 
     <TextView
+        android:id="@+id/mathCorrectAnswersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correct Answers for Math: " />
+
+    <TextView
+        android:id="@+id/totalMathQuestionsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Math Questions: " />
+
+    <TextView
+        android:id="@+id/animalsCorrectAnswersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correct Answers for Animals: " />
+
+    <TextView
+        android:id="@+id/totalAnimalsQuestionsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Animal Questions: " />
+
+    <TextView
         android:id="@+id/comparisonCorrectAnswersTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,6 +81,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total Comparison Questions: " />
+
+    <TextView
+        android:id="@+id/sentenceAgainCorrectAnswersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correct Answers for Sentence Again: " />
+
+    <TextView
+        android:id="@+id/totalSentenceAgainQuestionsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Sentence Again Questions: " />
 
     <!-- Add more TextViews for other tests here -->
 
