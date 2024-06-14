@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cognitiveassestmentapp.R
-import com.example.cognitiveassestmentapp.games.statistics.StatisticsTYM
+import com.example.cognitiveassestmentapp.statistics.StatisticsTYM
 
 class SentenceAgain : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

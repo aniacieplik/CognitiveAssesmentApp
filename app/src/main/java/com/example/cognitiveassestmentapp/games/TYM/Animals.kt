@@ -21,7 +21,7 @@ class Animals : AppCompatActivity() {
         val animal5Input: EditText = findViewById(R.id.animal5Input)
         val submitAnimalsButton: Button = findViewById(R.id.submitAnimalsButton)
 
-        val validAnimals = setOf("swan", "salmon", "scorpion", "sea lion", "seal", "skunk", "snail", "snake", "spider", "squid", "squirrel", "stingray", "sparrow", "sheep", "shark", "snow leopard", "salamander", "sardine", "scallop", "seahorse", "shrimp", "sloth", "starfish")
+        val validAnimals = setOf("swan", "salmon", "scorpion", "sea lion", "seal", "skunk", "snail", "snake", "spider", "squid", "squirrel", "stingray", "sparrow", "sheep", "shark", "snow leopard", "salamander", "sardine", "scallop", "seahorse", "shrimp", "sloth", "starfish", "serval")
 
         submitAnimalsButton.setOnClickListener {
             val animals = listOf(
@@ -38,13 +38,8 @@ class Animals : AppCompatActivity() {
             // Save statistics
             saveStatistics(correctAnswers, animals.size)
 
-            if (correctAnswers == 5) {
-                Toast.makeText(this, "Correct! Well done!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, ComparisonQuestions::class.java)
-                startActivity(intent)
-            } else {
-                Toast.makeText(this, "You got $correctAnswers out of 5 correct. Please try again.", Toast.LENGTH_SHORT).show()
-            }
+            val intent = Intent(this, ComparisonQuestions::class.java)
+            startActivity(intent)
         }
     }
 

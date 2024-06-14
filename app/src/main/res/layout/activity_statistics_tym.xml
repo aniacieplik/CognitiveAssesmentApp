@@ -46,5 +46,30 @@
         android:layout_height="wrap_content"
         android:text="Total Math Questions: " />
 
+    <TextView
+        android:id="@+id/questionsCorrectAnswersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correct Answers for General Questions: " />
+
+    <TextView
+        android:id="@+id/totalGeneralQuestionsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total General Questions: " />
+
+    <TextView
+        android:id="@+id/comparisonCorrectAnswersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correct Answers for Comparisons: " />
+
+    <TextView
+        android:id="@+id/totalComparisonQuestionsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Comparison Questions: " />
+
+    <!-- Add more TextViews for other tests here -->
 
 </LinearLayout>

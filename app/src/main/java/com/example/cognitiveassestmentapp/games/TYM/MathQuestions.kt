@@ -33,15 +33,10 @@ class MathQuestions : AppCompatActivity() {
             if (answer4 == 2) correctAnswers++
 
             // Save statistics
-            saveStatistics(correctAnswers, 4) // 4 is the total number of math questions
+            saveStatistics(correctAnswers, 4)
 
-            if (correctAnswers == 4) {
-                Toast.makeText(this, "Correct! Well done!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, Animals::class.java)
-                startActivity(intent)
-            } else {
-                Toast.makeText(this, "You got $correctAnswers out of 4 correct. Please try again.", Toast.LENGTH_SHORT).show()
-            }
+            val intent = Intent(this, Animals::class.java)
+            startActivity(intent)
         }
     }
 

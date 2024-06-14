@@ -44,11 +44,11 @@ class BasicQuestions : AppCompatActivity() {
         fetchUserName()
 
         dateInput.setOnClickListener {
-            showDatePickerDialog(dateInput)
+            showDatePickerDialog(dateInput, true)
         }
 
         birthdayInput.setOnClickListener {
-            showDatePickerDialog(birthdayInput)
+            showDatePickerDialog(birthdayInput, false)
         }
 
         submitButton.setOnClickListener {
@@ -65,11 +65,11 @@ class BasicQuestions : AppCompatActivity() {
         }
     }
 
-    private fun showDatePickerDialog(editText: EditText) {
+    private fun showDatePickerDialog(editText: EditText, isTodayDate: Boolean) {
         val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        val year = if (isTodayDate) 0 else calendar.get(Calendar.YEAR)
+        val month = if (isTodayDate) 0 else calendar.get(Calendar.MONTH)
+        val day = if (isTodayDate) 0 else calendar.get(Calendar.DAY_OF_MONTH)
 
         val datePickerDialog = DatePickerDialog(
             this,
@@ -113,9 +113,9 @@ class BasicQuestions : AppCompatActivity() {
         Log.d("BasicQuestions", "Correct Answers: $correctAnswers")
 
         // Save statistics
-        saveStatistics(correctAnswers, 5) // 5 is the total number of questions
+        saveStatistics(correctAnswers, 5)
 
-        // Redirect to the next activity
+        // Proceed to the next activity
         Log.d("BasicQuestions", "Redirecting to CopySentence Activity")
         val intent = Intent(this, CopySentence::class.java)
         startActivity(intent)
@@ -138,11 +138,10 @@ class BasicQuestions : AppCompatActivity() {
     }
 
     private fun saveStatistics(correctAnswers: Int, totalQuestions: Int) {
-        // Save the statistics to shared preferences
         val sharedPreferences = getSharedPreferences("CognitiveAssessmentApp", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        editor.putInt("correctAnswers", sharedPreferences.getInt("correctAnswers", 0) + correctAnswers)
-        editor.putInt("totalQuestions", sharedPreferences.getInt("totalQuestions", 0) + totalQuestions)
+        editor.putInt("basicCorrectAnswers", correctAnswers)
+        editor.putInt("totalBasicQuestions", totalQuestions)
         editor.apply()
     }
 }

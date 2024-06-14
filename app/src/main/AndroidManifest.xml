@@ -13,13 +13,13 @@
         android:theme="@style/Theme.CognitiveAssestmentApp"
         tools:targetApi="31">
         <activity
-            android:name=".games.statistics.StatisticsBAS"
+            android:name=".statistics.StatisticsBAS"
             android:exported="false" />
         <activity
-            android:name=".games.statistics.StatisticsMIS"
+            android:name=".statistics.StatisticsMIS"
             android:exported="false" />
         <activity
-            android:name=".games.statistics.StatisticsTYM"
+            android:name=".statistics.StatisticsTYM"
             android:exported="false" />
         <activity
             android:name=".games.TYM.SentenceAgain"
@@ -34,7 +34,7 @@
             android:name=".games.TYM.MathQuestions"
             android:exported="false" />
         <activity
-            android:name=".games.TYM.Questions"
+            android:name=".games.TYM.GeneralQuestions"
             android:exported="false" />
         <activity
             android:name=".games.TYM.CopySentence"

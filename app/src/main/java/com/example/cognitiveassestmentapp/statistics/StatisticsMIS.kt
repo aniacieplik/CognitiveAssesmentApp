@@ -1,4 +1,4 @@
-package com.example.cognitiveassestmentapp.games.statistics
+package com.example.cognitiveassestmentapp.statistics
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
