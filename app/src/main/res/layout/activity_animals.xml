@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please write 5 animals that start with the letter 'S':" />
+        android:text="Enter 5 animals that start with the letter S:" />
 
     <EditText
         android:id="@+id/animal1Input"

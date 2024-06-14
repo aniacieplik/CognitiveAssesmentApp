@@ -1,5 +1,6 @@
 package com.example.cognitiveassestmentapp.games.TYM
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -31,13 +32,27 @@ class Animals : AppCompatActivity() {
                 animal5Input.text.toString().trim().lowercase()
             )
 
-            if (animals.all { it in validAnimals }) {
+            var correctAnswers = 0
+            animals.forEach { if (it in validAnimals) correctAnswers++ }
+
+            // Save statistics
+            saveStatistics(correctAnswers, animals.size)
+
+            if (correctAnswers == 5) {
                 Toast.makeText(this, "Correct! Well done!", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, ComparisonQuestions::class.java)
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "Incorrect. Please try again.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "You got $correctAnswers out of 5 correct. Please try again.", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun saveStatistics(correctAnswers: Int, totalQuestions: Int) {
+        val sharedPreferences = getSharedPreferences("CognitiveAssessmentApp", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putInt("animalsCorrectAnswers", correctAnswers)
+        editor.putInt("totalAnimalsQuestions", totalQuestions)
+        editor.apply()
     }
 }

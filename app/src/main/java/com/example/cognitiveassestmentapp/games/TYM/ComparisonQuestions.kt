@@ -1,11 +1,13 @@
 package com.example.cognitiveassestmentapp.games.TYM
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cognitiveassestmentapp.R
+import com.example.cognitiveassestmentapp.games.statistics.StatisticsTYM
 
 class ComparisonQuestions : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +36,8 @@ class ComparisonQuestions : AppCompatActivity() {
 
             if (carrotPotatoAnswer == "vegetable" && lionWolfAnswer == "animal") {
                 Toast.makeText(this, "Correct! Well done!", Toast.LENGTH_SHORT).show()
-                // Proceed to the next part of the game or end here
+                val intent = Intent(this, StatisticsTYM::class.java)
+                startActivity(intent)
             } else {
                 Toast.makeText(this, "Incorrect. Please try again.", Toast.LENGTH_SHORT).show()
             }

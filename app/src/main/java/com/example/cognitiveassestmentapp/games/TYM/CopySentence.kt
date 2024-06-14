@@ -20,7 +20,7 @@ class CopySentence : AppCompatActivity() {
             val copiedText = copySentenceInput.text.toString()
             val correctSentence = "GOOD CITIZENS ALWAYS WEAR STOUT SHOES"
 
-            if (copiedText == correctSentence) {
+            if (copiedText.equals(correctSentence, ignoreCase = true) ) {
                 Toast.makeText(this, "Correct! Well done!", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, Questions::class.java)
                 startActivity(intent)

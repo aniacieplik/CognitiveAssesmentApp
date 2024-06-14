@@ -1,5 +1,6 @@
 package com.example.cognitiveassestmentapp.games.TYM
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -25,13 +26,30 @@ class MathQuestions : AppCompatActivity() {
             val answer3 = equation3Input.text.toString().toIntOrNull()
             val answer4 = equation4Input.text.toString().toIntOrNull()
 
-            if (answer1 == 16 && answer2 == 33 && answer3 == 48 && answer4 == 2) {
+            var correctAnswers = 0
+            if (answer1 == 16) correctAnswers++
+            if (answer2 == 33) correctAnswers++
+            if (answer3 == 48) correctAnswers++
+            if (answer4 == 2) correctAnswers++
+
+            // Save statistics
+            saveStatistics(correctAnswers, 4) // 4 is the total number of math questions
+
+            if (correctAnswers == 4) {
                 Toast.makeText(this, "Correct! Well done!", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, Animals::class.java)
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "Incorrect. Please try again.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "You got $correctAnswers out of 4 correct. Please try again.", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun saveStatistics(correctAnswers: Int, totalQuestions: Int) {
+        val sharedPreferences = getSharedPreferences("CognitiveAssessmentApp", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putInt("mathCorrectAnswers", correctAnswers)
+        editor.putInt("totalMathQuestions", totalQuestions)
+        editor.apply()
     }
 }
