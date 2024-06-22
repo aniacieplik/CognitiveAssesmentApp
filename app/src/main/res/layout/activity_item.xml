@@ -1,119 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_item_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Word TextViews -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/match_words_to_categories_22_06_2024" />
+
     <TextView
         android:id="@+id/word1_textview"
-        android:layout_width="wrap_content"
+        android:layout_width="135dp"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_margin="16dp"
-        android:text="Word1"
+        android:layout_below="@id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/word_background"
         android:clickable="true"
-        android:onClick="onWordClicked" />
+        android:onClick="onWordClicked"
+        android:text="Word1"
+        android:textSize="24sp" />
 
-    <!-- Add TextViews for other words similarly -->
     <TextView
         android:id="@+id/word2_textview"
-        android:layout_width="wrap_content"
+        android:layout_width="137dp"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_margin="16dp"
-        android:text="Word2"
+        android:layout_below="@id/word1_textview"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/word_background"
         android:clickable="true"
         android:onClick="onWordClicked"
-        android:layout_below="@id/word1_textview" />
+        android:text="Word2"
+        android:textSize="24sp" />
 
-    <!-- Add TextViews for other words similarly -->
     <TextView
         android:id="@+id/word3_textview"
-        android:layout_width="wrap_content"
+        android:layout_width="135dp"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_margin="16dp"
-        android:text="Word3"
+        android:layout_below="@id/word2_textview"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/word_background"
         android:clickable="true"
         android:onClick="onWordClicked"
-        android:layout_below="@id/word2_textview" />
-
+        android:text="Word3"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/word4_textview"
-        android:layout_width="wrap_content"
+        android:layout_width="133dp"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_margin="16dp"
-        android:text="Word4"
+        android:layout_below="@id/word3_textview"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/word_background"
         android:clickable="true"
         android:onClick="onWordClicked"
-        android:layout_below="@id/word3_textview" />
+        android:text="Word4"
+        android:textSize="24sp" />
 
-    <!-- Category TextViews -->
     <TextView
         android:id="@+id/category1_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_margin="16dp"
-        android:text="Category1"
+        android:layout_below="@id/imageView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/category_background"
         android:clickable="true"
         android:onClick="onCategoryClicked"
-        android:layout_below="@id/word4_textview" />
+        android:text="Category1"
+        android:textSize="24sp" />
 
-    <!-- Add TextViews for other categories similarly -->
     <TextView
         android:id="@+id/category2_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_margin="16dp"
-        android:text="Category2"
+        android:layout_below="@id/category1_textview"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/category_background"
         android:clickable="true"
         android:onClick="onCategoryClicked"
-        android:layout_below="@id/category1_textview" />
+        android:text="Category2"
+        android:textSize="24sp" />
 
-    <!-- Add TextViews for other categories similarly -->
     <TextView
         android:id="@+id/category3_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_margin="16dp"
-        android:text="Category3"
+        android:layout_below="@id/category2_textview"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/category_background"
         android:clickable="true"
         android:onClick="onCategoryClicked"
-        android:layout_below="@id/category2_textview" />
+        android:text="Category3"
+        android:textSize="24sp" />
 
-    <!-- Add TextViews for other categories similarly -->
     <TextView
         android:id="@+id/category4_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_margin="16dp"
-        android:text="Category4"
+        android:layout_below="@id/category3_textview"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/category_background"
         android:clickable="true"
         android:onClick="onCategoryClicked"
-        android:layout_below="@id/category3_textview" />
+        android:text="Category4"
+        android:textSize="24sp" />
 
-    <!-- Match Button -->
     <Button
-        android:id="@+id/match_button"
-        android:layout_width="wrap_content"
+        android:id="@+id/finish_button"
+        android:layout_width="114dp"
         android:layout_height="wrap_content"
-        android:text="Match"
         android:layout_below="@id/category4_textview"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="151dp"
+        android:textSize="24sp"
+        android:backgroundTint="#CCCCCC"
+        android:text="Finish"
+        android:enabled="false" />
 
 </RelativeLayout>
