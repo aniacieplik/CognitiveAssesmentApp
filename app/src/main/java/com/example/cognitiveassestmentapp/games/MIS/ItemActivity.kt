@@ -17,10 +17,10 @@ import com.example.cognitiveassestmentapp.registration.MenuActivity
 class ItemActivity : AppCompatActivity() {
 
     private val words = listOf(
-        "Word1" to "Category1",
-        "Word2" to "Category2",
-        "Word3" to "Category3",
-        "Word4" to "Category4"
+        "Checkers" to "Game",
+        "Saucer" to "Dish",
+        "Telegram" to "Message",
+        "Red Cross" to "Organisation"
     ).shuffled()
 
     private var matchedWords = mutableMapOf<String, Boolean>()
@@ -112,7 +112,7 @@ class ItemActivity : AppCompatActivity() {
         }
 
         finishButton.setOnClickListener {
-            startActivity(Intent(this, MenuActivity::class.java))
+            startActivity(Intent(this, DistractorActivity::class.java))
             finish()
         }
     }
