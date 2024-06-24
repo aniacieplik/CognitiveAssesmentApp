@@ -39,7 +39,6 @@ class ComparisonQuestions : AppCompatActivity() {
             if (carrotPotatoAnswer == "vegetable" || carrotPotatoAnswer == "vegetables") correctAnswers++
             if (lionWolfAnswer == "animal" || lionWolfAnswer == "animals") correctAnswers++
 
-            // Save statistics
             saveStatistics(correctAnswers, 2)
 
             val intent = Intent(this, SentenceAgain::class.java)

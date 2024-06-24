@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CognitiveAssestmentApp"
         tools:targetApi="31">
+
         <activity
             android:name=".statistics.StatisticsBAS"
             android:exported="false" />
@@ -42,21 +43,29 @@
         <activity
             android:name=".games.TYM.BasicQuestions"
             android:exported="false" />
-        <activity android:name=".games.MIS.DistractorActivity"
+        <activity
+            android:name=".games.MIS.DistractorActivity"
             android:exported="false" />
-        <activity android:name=".games.MIS.ItemActivity"
+        <activity
+            android:name=".games.MIS.ItemActivity"
             android:exported="false" />
-        <activity android:name=".games.MIS.MisActivity"
+        <activity
+            android:name=".games.MIS.MisActivity"
             android:exported="false" />
-        <activity android:name=".games.MIS.FreeRecallActivity"
+        <activity
+            android:name=".games.MIS.FreeRecallActivity"
             android:exported="false" />
-        <activity android:name=".games.BAS.AnimalInput"
+        <activity
+            android:name=".games.BAS.AnimalInput"
             android:exported="false" />
-        <activity android:name=".games.BAS.RememberWords"
+        <activity
+            android:name=".games.BAS.RememberWords"
             android:exported="false" />
-        <activity android:name=".games.BAS.RememberWordsInput"
+        <activity
+            android:name=".games.BAS.RememberWordsInput"
             android:exported="false" />
-        <activity android:name=".games.BAS.SpellWorldBackwards"
+        <activity
+            android:name=".games.BAS.SpellWorldBackwards"
             android:exported="false" />
         <activity
             android:name=".registration.MainActivity"

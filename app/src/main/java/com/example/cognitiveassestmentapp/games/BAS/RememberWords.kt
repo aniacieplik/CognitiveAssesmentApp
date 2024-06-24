@@ -21,12 +21,10 @@ class RememberWords : AppCompatActivity() {
         wordsTextView = findViewById(R.id.wordsTextView)
         nextButton = findViewById(R.id.nextButton)
 
-        // Display the words to remember
         val words = listOf("Apple", "Table", "Penny")
         wordsTextView.text = words.joinToString(", ")
 
         nextButton.setOnClickListener {
-            // Proceed to the next activity or step
             val intent = Intent(this, SpellWorldBackwards::class.java)
             startActivity(intent)
         }

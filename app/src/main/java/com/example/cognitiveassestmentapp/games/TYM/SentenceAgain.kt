@@ -17,7 +17,6 @@ class SentenceAgain : AppCompatActivity() {
         val userInputEditText = findViewById<EditText>(R.id.userInputEditText)
         val submitButton = findViewById<Button>(R.id.submitButton)
 
-        // Get the copied sentence from the intent
         val copiedSentence = intent.getStringExtra("copiedSentence")
 
         submitButton.setOnClickListener {
@@ -28,10 +27,8 @@ class SentenceAgain : AppCompatActivity() {
                 correctAnswers++
             }
 
-            // Save statistics
-            saveStatistics(correctAnswers, 1) // 1 is the total number of questions in this activity
+            saveStatistics(correctAnswers, 1)
 
-            // Proceed to the next activity
             val intent = Intent(this, StatisticsTYM::class.java)
             startActivity(intent)
         }

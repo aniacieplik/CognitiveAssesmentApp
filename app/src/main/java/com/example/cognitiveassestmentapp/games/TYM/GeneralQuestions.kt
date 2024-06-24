@@ -21,7 +21,6 @@ class GeneralQuestions : AppCompatActivity() {
         val ww2YearSpinner: Spinner = findViewById(R.id.ww2YearSpinner)
         val submitQuestionsButton: Button = findViewById(R.id.submitQuestionsButton)
 
-        // Populate the year spinner
         val years = (1900..Calendar.getInstance().get(Calendar.YEAR)).toList().reversed()
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, years)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -35,8 +34,7 @@ class GeneralQuestions : AppCompatActivity() {
             if (primeMinister == "Donald Tusk") correctAnswers++
             if (ww2Year == "1939") correctAnswers++
 
-            // Save statistics
-            saveStatistics(correctAnswers, 2) //
+            saveStatistics(correctAnswers, 2)
 
             val intent = Intent(this, MathQuestions::class.java)
             startActivity(intent)

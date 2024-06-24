@@ -59,7 +59,7 @@ class BasicQuestions : AppCompatActivity() {
     private fun fetchUserName() {
         val userId = auth.currentUser?.uid
         userId?.let {
-            database.child("users").child(it).child("name").get().addOnSuccessListener {
+            database.child("users").child(it).child("firstName").get().addOnSuccessListener {
                 nameInput.setText(it.value.toString())
             }
         }
@@ -67,9 +67,9 @@ class BasicQuestions : AppCompatActivity() {
 
     private fun showDatePickerDialog(editText: EditText, isTodayDate: Boolean) {
         val calendar = Calendar.getInstance()
-        val year = if (isTodayDate) 0 else calendar.get(Calendar.YEAR)
-        val month = if (isTodayDate) 0 else calendar.get(Calendar.MONTH)
-        val day = if (isTodayDate) 0 else calendar.get(Calendar.DAY_OF_MONTH)
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
 
         val datePickerDialog = DatePickerDialog(
             this,
@@ -85,37 +85,42 @@ class BasicQuestions : AppCompatActivity() {
     private fun checkAnswers() {
         var correctAnswers = 0
 
-        // Check day of the week
         val currentDayOfWeek = DateFormat.format("EEEE", Calendar.getInstance()).toString()
-        if (dayOfWeekInput.text.toString().equals(currentDayOfWeek, ignoreCase = true)) {
+        val dayOfWeekInputText = dayOfWeekInput.text.toString().trim()
+        Log.d("BasicQuestions", "Expected Day: $currentDayOfWeek, Input Day: $dayOfWeekInputText")
+        if (dayOfWeekInputText.equals(currentDayOfWeek, ignoreCase = true)) {
             correctAnswers++
         }
 
-        // Check date
         val currentDate = DateFormat.format("yyyy-MM-dd", Calendar.getInstance()).toString()
-        if (dateInput.text.toString() == currentDate) {
+        val dateInputText = dateInput.text.toString().trim()
+        Log.d("BasicQuestions", "Expected Date: $currentDate, Input Date: $dateInputText")
+        if (dateInputText == currentDate) {
             correctAnswers++
         }
 
-        // Check age
-        val birthdate = birthdayInput.text.toString()
-        val age = calculateAge(birthdate)
-        if (ageInput.text.toString().toIntOrNull() == age) {
-            correctAnswers++
+        val birthdate = birthdayInput.text.toString().trim()
+        val ageInputText = ageInput.text.toString().toIntOrNull()
+        if (ageInputText != null) {
+            val age = calculateAge(birthdate)
+            Log.d("BasicQuestions", "Expected Age: $age, Input Age: $ageInputText")
+            if (ageInputText == age) {
+                correctAnswers++
+            }
+        } else {
+            Log.d("BasicQuestions", "Invalid age input: $ageInputText")
         }
 
-        // Check birthdate
-        val registrationBirthdate = "2000-01-01" // Fetch from user's registration info
+        val registrationBirthdate = "2000-01-01"
+        Log.d("BasicQuestions", "Expected Birthdate: $registrationBirthdate, Input Birthdate: $birthdate")
         if (birthdate == registrationBirthdate) {
             correctAnswers++
         }
 
         Log.d("BasicQuestions", "Correct Answers: $correctAnswers")
 
-        // Save statistics
         saveStatistics(correctAnswers, 5)
 
-        // Proceed to the next activity
         Log.d("BasicQuestions", "Redirecting to CopySentence Activity")
         val intent = Intent(this, CopySentence::class.java)
         startActivity(intent)
@@ -123,6 +128,10 @@ class BasicQuestions : AppCompatActivity() {
 
     private fun calculateAge(birthdate: String): Int {
         val parts = birthdate.split("-")
+        if (parts.size != 3) {
+            Log.d("BasicQuestions", "Invalid birthdate format: $birthdate")
+            return -1
+        }
         val birthYear = parts[0].toInt()
         val birthMonth = parts[1].toInt()
         val birthDay = parts[2].toInt()
@@ -130,7 +139,7 @@ class BasicQuestions : AppCompatActivity() {
         val today = Calendar.getInstance()
         var age = today.get(Calendar.YEAR) - birthYear
 
-        if (today.get(Calendar.MONTH) < birthMonth || (today.get(Calendar.MONTH) == birthMonth && today.get(Calendar.DAY_OF_MONTH) < birthDay)) {
+        if (today.get(Calendar.MONTH) < birthMonth - 1 || (today.get(Calendar.MONTH) == birthMonth - 1 && today.get(Calendar.DAY_OF_MONTH) < birthDay)) {
             age--
         }
 

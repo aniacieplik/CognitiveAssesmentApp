@@ -35,7 +35,6 @@ class Animals : AppCompatActivity() {
             var correctAnswers = 0
             animals.forEach { if (it in validAnimals) correctAnswers++ }
 
-            // Save statistics
             saveStatistics(correctAnswers, animals.size)
 
             val intent = Intent(this, ComparisonQuestions::class.java)

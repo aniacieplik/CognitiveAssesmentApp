@@ -26,10 +26,8 @@ class CopySentence : AppCompatActivity() {
                 correctAnswers++
             }
 
-            // Save statistics
-            saveStatistics(correctAnswers, 1) // 1 is the total number of questions in this activity
+            saveStatistics(correctAnswers, 1)
 
-            // Proceed to the next activity
             val intent = Intent(this, GeneralQuestions::class.java)
             startActivity(intent)
         }

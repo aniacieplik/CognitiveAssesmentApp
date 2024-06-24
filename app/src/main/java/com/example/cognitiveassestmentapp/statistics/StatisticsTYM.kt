@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cognitiveassestmentapp.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class StatisticsTYM : AppCompatActivity() {
 
@@ -23,9 +25,15 @@ class StatisticsTYM : AppCompatActivity() {
     private lateinit var sentenceAgainCorrectAnswersTextView: TextView
     private lateinit var totalSentenceAgainQuestionsTextView: TextView
 
+    private lateinit var auth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_statistics_tym)
+
+        auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
 
         basicCorrectAnswersTextView = findViewById(R.id.basicCorrectAnswersTextView)
         totalBasicQuestionsTextView = findViewById(R.id.totalBasicQuestionsTextView)
@@ -42,7 +50,6 @@ class StatisticsTYM : AppCompatActivity() {
         sentenceAgainCorrectAnswersTextView = findViewById(R.id.sentenceAgainCorrectAnswersTextView)
         totalSentenceAgainQuestionsTextView = findViewById(R.id.totalSentenceAgainQuestionsTextView)
 
-        // Get statistics from shared preferences
         val sharedPreferences = getSharedPreferences("CognitiveAssessmentApp", Context.MODE_PRIVATE)
         val basicCorrectAnswers = sharedPreferences.getInt("basicCorrectAnswers", 0)
         val totalBasicQuestions = sharedPreferences.getInt("totalBasicQuestions", 0)
@@ -59,12 +66,54 @@ class StatisticsTYM : AppCompatActivity() {
         val sentenceAgainCorrectAnswers = sharedPreferences.getInt("sentenceAgainCorrectAnswers", 0)
         val totalSentenceAgainQuestions = sharedPreferences.getInt("totalSentenceAgainQuestions", 1)
 
+        saveStatisticsToFirebase(
+            basicCorrectAnswers, totalBasicQuestions, copySentenceCorrectAnswers, totalCopySentenceQuestions,
+            questionsCorrectAnswers, totalGeneralQuestions, mathCorrectAnswers, totalMathQuestions,
+            animalsCorrectAnswers, totalAnimalsQuestions, comparisonCorrectAnswers, totalComparisonQuestions,
+            sentenceAgainCorrectAnswers, totalSentenceAgainQuestions
+        )
+
         displayStatistics(
             basicCorrectAnswers, totalBasicQuestions, copySentenceCorrectAnswers, totalCopySentenceQuestions,
             questionsCorrectAnswers, totalGeneralQuestions, mathCorrectAnswers, totalMathQuestions,
             animalsCorrectAnswers, totalAnimalsQuestions, comparisonCorrectAnswers, totalComparisonQuestions,
             sentenceAgainCorrectAnswers, totalSentenceAgainQuestions
         )
+    }
+
+    private fun saveStatisticsToFirebase(
+        basicCorrectAnswers: Int, totalBasicQuestions: Int, copySentenceCorrectAnswers: Int, totalCopySentenceQuestions: Int,
+        questionsCorrectAnswers: Int, totalGeneralQuestions: Int, mathCorrectAnswers: Int, totalMathQuestions: Int,
+        animalsCorrectAnswers: Int, totalAnimalsQuestions: Int, comparisonCorrectAnswers: Int, totalComparisonQuestions: Int,
+        sentenceAgainCorrectAnswers: Int, totalSentenceAgainQuestions: Int
+    ) {
+        val userId = auth.currentUser?.uid ?: return
+        val userStatisticsRef = firestore.collection("users").document(userId)
+            .collection("statistics").document("StatisticsTYM")
+            .collection("attempts")
+
+        userStatisticsRef.get().addOnSuccessListener { result ->
+            val currentAttempt = result.size() + 1
+            val attemptId = "attempt$currentAttempt"
+
+            val statistics = mapOf(
+                "basicCorrectAnswers" to basicCorrectAnswers,
+                "copySentenceCorrectAnswers" to copySentenceCorrectAnswers,
+                "questionsCorrectAnswers" to questionsCorrectAnswers,
+                "mathCorrectAnswers" to mathCorrectAnswers,
+                "animalsCorrectAnswers" to animalsCorrectAnswers,
+                "comparisonCorrectAnswers" to comparisonCorrectAnswers,
+                "sentenceAgainCorrectAnswers" to sentenceAgainCorrectAnswers,
+            )
+
+            userStatisticsRef.document(attemptId).set(statistics)
+                .addOnSuccessListener {
+                    // Handle success
+                }
+                .addOnFailureListener { e ->
+                    // Handle failure
+                }
+        }
     }
 
     private fun displayStatistics(

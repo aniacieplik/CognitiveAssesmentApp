@@ -32,7 +32,6 @@ class MathQuestions : AppCompatActivity() {
             if (answer3 == 48) correctAnswers++
             if (answer4 == 2) correctAnswers++
 
-            // Save statistics
             saveStatistics(correctAnswers, 4)
 
             val intent = Intent(this, Animals::class.java)
