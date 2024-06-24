@@ -1,6 +1,121 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/instruction_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/timertextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_below="@id/instruction_textview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/word1edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Word 1"
+        android:layout_below="@id/timertextview"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/word2edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Word 2"
+        android:layout_below="@id/word1edittext"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/word3edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Word 3"
+        android:layout_below="@id/word2edittext"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/word4edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Word 4"
+        android:layout_below="@id/word3edittext"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/hint1textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_below="@id/word4edittext"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <TextView
+        android:id="@+id/hint2textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_below="@id/hint1textview"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <TextView
+        android:id="@+id/hint3textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_below="@id/hint2textview"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <TextView
+        android:id="@+id/hint4textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_below="@id/hint3textview"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <Button
+        android:id="@+id/start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hint4textview"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="162dp"
+        android:text="Start" />
+
+    <Button
+        android:id="@+id/finish_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Finish"
+        android:layout_below="@id/start_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_below="@id/finish_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:enabled="false"/>
+
+</RelativeLayout>

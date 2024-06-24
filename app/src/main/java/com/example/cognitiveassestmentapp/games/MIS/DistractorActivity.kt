@@ -64,9 +64,7 @@ class DistractorActivity : AppCompatActivity() {
         }
 
         finishButton.setOnClickListener {
-            // Directly navigate to the FreeRecallActivity
             startActivity(Intent(this, FreeRecallActivity::class.java))
-            // Finish current activity to prevent going back to it
             finish()
         }
     }

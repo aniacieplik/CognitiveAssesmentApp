@@ -48,6 +48,16 @@
             android:exported="false" />
         <activity android:name=".games.MIS.MisActivity"
             android:exported="false" />
+        <activity android:name=".games.MIS.FreeRecallActivity"
+            android:exported="false" />
+        <activity android:name=".games.BAS.AnimalInput"
+            android:exported="false" />
+        <activity android:name=".games.BAS.RememberWords"
+            android:exported="false" />
+        <activity android:name=".games.BAS.RememberWordsInput"
+            android:exported="false" />
+        <activity android:name=".games.BAS.SpellWorldBackwards"
+            android:exported="false" />
         <activity
             android:name=".registration.MainActivity"
             android:exported="true">
