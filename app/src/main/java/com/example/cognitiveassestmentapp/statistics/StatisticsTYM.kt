@@ -12,6 +12,9 @@ import com.example.cognitiveassestmentapp.registration.MenuActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
+/**
+ * Activity for displaying and saving statistics of the TYM games.
+ */
 class StatisticsTYM : AppCompatActivity() {
 
     private lateinit var basicCorrectAnswersTextView: TextView
@@ -33,6 +36,13 @@ class StatisticsTYM : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
 
+    /**
+     * Called when the activity is first created. Initializes the UI elements and sets up
+     * the return button's click listener.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down
+     *                           then this Bundle contains the data it most recently supplied. Note: Otherwise it is null.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_statistics_tym)
@@ -92,6 +102,24 @@ class StatisticsTYM : AppCompatActivity() {
         )
     }
 
+    /**
+     * Saves the statistics of the TYM games to Firebase Firestore.
+     *
+     * @param basicCorrectAnswers The number of correct answers for basic questions.
+     * @param totalBasicQuestions The total number of basic questions.
+     * @param copySentenceCorrectAnswers The number of correct answers for copy sentence.
+     * @param totalCopySentenceQuestions The total number of copy sentence questions.
+     * @param questionsCorrectAnswers The number of correct answers for general questions.
+     * @param totalGeneralQuestions The total number of general questions.
+     * @param mathCorrectAnswers The number of correct answers for math questions.
+     * @param totalMathQuestions The total number of math questions.
+     * @param animalsCorrectAnswers The number of correct answers for animal questions.
+     * @param totalAnimalsQuestions The total number of animal questions.
+     * @param comparisonCorrectAnswers The number of correct answers for comparison questions.
+     * @param totalComparisonQuestions The total number of comparison questions.
+     * @param sentenceAgainCorrectAnswers The number of correct answers for sentence again.
+     * @param totalSentenceAgainQuestions The total number of sentence again questions.
+     */
     private fun saveStatisticsToFirebase(
         basicCorrectAnswers: Int, totalBasicQuestions: Int, copySentenceCorrectAnswers: Int, totalCopySentenceQuestions: Int,
         questionsCorrectAnswers: Int, totalGeneralQuestions: Int, mathCorrectAnswers: Int, totalMathQuestions: Int,
@@ -129,6 +157,24 @@ class StatisticsTYM : AppCompatActivity() {
         }
     }
 
+    /**
+     * Displays the statistics of the TYM games.
+     *
+     * @param basicCorrectAnswers The number of correct answers for basic questions.
+     * @param totalBasicQuestions The total number of basic questions.
+     * @param copySentenceCorrectAnswers The number of correct answers for copy sentence.
+     * @param totalCopySentenceQuestions The total number of copy sentence questions.
+     * @param questionsCorrectAnswers The number of correct answers for general questions.
+     * @param totalGeneralQuestions The total number of general questions.
+     * @param mathCorrectAnswers The number of correct answers for math questions.
+     * @param totalMathQuestions The total number of math questions.
+     * @param animalsCorrectAnswers The number of correct answers for animal questions.
+     * @param totalAnimalsQuestions The total number of animal questions.
+     * @param comparisonCorrectAnswers The number of correct answers for comparison questions.
+     * @param totalComparisonQuestions The total number of comparison questions.
+     * @param sentenceAgainCorrectAnswers The number of correct answers for sentence again.
+     * @param totalSentenceAgainQuestions The total number of sentence again questions.
+     */
     private fun displayStatistics(
         basicCorrectAnswers: Int, totalBasicQuestions: Int, copySentenceCorrectAnswers: Int, totalCopySentenceQuestions: Int,
         questionsCorrectAnswers: Int, totalGeneralQuestions: Int, mathCorrectAnswers: Int, totalMathQuestions: Int,

@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.cognitiveassestmentapp.R
 import com.example.cognitiveassestmentapp.statistics.StatisticsMIS
 
+/**
+ * Activity for the "Free Recall" game where users try to recall and input as many given words as possible within a time limit.
+ */
 class FreeRecallActivity : AppCompatActivity() {
 
     private val words = listOf(
@@ -32,6 +35,13 @@ class FreeRecallActivity : AppCompatActivity() {
     private var points = 0
     private var finishButtonClickCount = 0
 
+    /**
+     * Called when the activity is first created. Initializes the UI elements and sets up
+     * the start, finish, and next button click listeners.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down
+     *                           then this Bundle contains the data it most recently supplied. Note: Otherwise it is null.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_freerecall)
@@ -95,6 +105,10 @@ class FreeRecallActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Starts the countdown timer for the game. Updates the timer TextView each second and
+     * handles the end of the timer.
+     */
     private fun startTimer() {
         countDownTimer = object : CountDownTimer(60000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
@@ -111,10 +125,16 @@ class FreeRecallActivity : AppCompatActivity() {
         }.start()
     }
 
+    /**
+     * Stops the countdown timer.
+     */
     private fun stopTimer() {
         countDownTimer.cancel()
     }
 
+    /**
+     * Calculates the points based on the user's recalled words. Updates the hints and points accordingly.
+     */
     private fun calculatePoints() {
         val correctWords = words.map { it.first }
         var allCorrect = true

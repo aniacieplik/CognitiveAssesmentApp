@@ -9,7 +9,17 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.cognitiveassestmentapp.R
 import com.example.cognitiveassestmentapp.statistics.StatisticsTYM
 
+/**
+ * Activity for the "Sentence Again" game where users re-enter a previously copied sentence.
+ */
 class SentenceAgain : AppCompatActivity() {
+    /**
+     * Called when the activity is first created. Initializes the UI elements and sets up
+     * the submit button's click listener.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down
+     *                           then this Bundle contains the data it most recently supplied. Note: Otherwise it is null.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sentence_again)
@@ -34,6 +44,12 @@ class SentenceAgain : AppCompatActivity() {
         }
     }
 
+    /**
+     * Saves the statistics of the "Sentence Again" game to shared preferences.
+     *
+     * @param correctAnswers The number of correct answers provided by the user.
+     * @param totalQuestions The total number of questions asked in the game.
+     */
     private fun saveStatistics(correctAnswers: Int, totalQuestions: Int) {
         val sharedPreferences = getSharedPreferences("CognitiveAssessmentApp", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()

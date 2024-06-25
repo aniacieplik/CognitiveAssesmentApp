@@ -12,6 +12,9 @@ import com.example.cognitiveassestmentapp.registration.MenuActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
+/**
+ * Activity for displaying and saving statistics of the BAS games.
+ */
 class StatisticsBAS : AppCompatActivity() {
 
     private lateinit var spellPointsTextView: TextView
@@ -25,6 +28,13 @@ class StatisticsBAS : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
 
+    /**
+     * Called when the activity is first created. Initializes the UI elements and sets up
+     * the return button's click listener.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down
+     *                           then this Bundle contains the data it most recently supplied. Note: Otherwise it is null.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_statistics_bas)
@@ -52,6 +62,16 @@ class StatisticsBAS : AppCompatActivity() {
         displayStatistics(totalSpellPoints, totalRememberPoints, totalAnimalPoints)
     }
 
+    /**
+     * Saves the statistics of the BAS games to Firebase Firestore.
+     *
+     * @param spellPoints The points scored in the "Spell Words Backwards" game.
+     * @param totalSpellPoints The total points scored in the "Spell Words Backwards" game.
+     * @param rememberPoints The points scored in the "Remember Words" game.
+     * @param totalRememberPoints The total points scored in the "Remember Words" game.
+     * @param animalPoints The points scored in the "Animal" game.
+     * @param totalAnimalPoints The total points scored in the "Animal" game.
+     */
     private fun saveStatisticsToFirebase(
         spellPoints: Int, totalSpellPoints: Int, rememberPoints: Int, totalRememberPoints: Int, animalPoints: Int, totalAnimalPoints: Int
     ) {
@@ -82,6 +102,13 @@ class StatisticsBAS : AppCompatActivity() {
         }
     }
 
+    /**
+     * Displays the statistics of the BAS games.
+     *
+     * @param totalSpellPoints The total points scored in the "Spell Words Backwards" game.
+     * @param totalRememberPoints The total points scored in the "Remember Words" game.
+     * @param totalAnimalPoints The total points scored in the "Animal" game.
+     */
     private fun displayStatistics(totalSpellPoints: Int, totalRememberPoints: Int, totalAnimalPoints: Int) {
         spellPointsTextView.text = "Spell Words Backwards Points: $totalSpellPoints"
         rememberPointsTextView.text = "Remember Words Points: $totalRememberPoints"

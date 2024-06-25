@@ -5,11 +5,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cognitiveassestmentapp.R
 
+/**
+ * Activity for the "Math Questions" game where users solve basic math equations.
+ */
 class MathQuestions : AppCompatActivity() {
+    /**
+     * Called when the activity is first created. Initializes the UI elements and sets up
+     * the submit button's click listener.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down
+     *                           then this Bundle contains the data it most recently supplied. Note: Otherwise it is null.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_math_questions)
@@ -39,6 +48,12 @@ class MathQuestions : AppCompatActivity() {
         }
     }
 
+    /**
+     * Saves the statistics of the "Math Questions" game to shared preferences.
+     *
+     * @param correctAnswers The number of correct answers provided by the user.
+     * @param totalQuestions The total number of questions asked in the game.
+     */
     private fun saveStatistics(correctAnswers: Int, totalQuestions: Int) {
         val sharedPreferences = getSharedPreferences("CognitiveAssessmentApp", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()

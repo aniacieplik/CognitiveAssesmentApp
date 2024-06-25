@@ -5,11 +5,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cognitiveassestmentapp.R
 
+/**
+ * Activity for the "Animals" game where users are required to input the names of animals.
+ */
 class Animals : AppCompatActivity() {
+    /**
+     * Called when the activity is first created. Initializes the UI elements and sets up
+     * the submit button's click listener.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down
+     *                           then this Bundle contains the data it most recently supplied. Note: Otherwise it is null.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_animals)
@@ -21,7 +30,11 @@ class Animals : AppCompatActivity() {
         val animal5Input: EditText = findViewById(R.id.animal5Input)
         val submitAnimalsButton: Button = findViewById(R.id.submitAnimalsButton)
 
-        val validAnimals = setOf("swan", "salmon", "scorpion", "sea lion", "seal", "skunk", "snail", "snake", "spider", "squid", "squirrel", "stingray", "sparrow", "sheep", "shark", "snow leopard", "salamander", "sardine", "scallop", "seahorse", "shrimp", "sloth", "starfish", "serval")
+        val validAnimals = setOf(
+            "swan", "salmon", "scorpion", "sea lion", "seal", "skunk", "snail", "snake", "spider",
+            "squid", "squirrel", "stingray", "sparrow", "sheep", "shark", "snow leopard",
+            "salamander", "sardine", "scallop", "seahorse", "shrimp", "sloth", "starfish", "serval"
+        )
 
         submitAnimalsButton.setOnClickListener {
             val animals = listOf(
@@ -42,6 +55,12 @@ class Animals : AppCompatActivity() {
         }
     }
 
+    /**
+     * Saves the statistics of the "Animals" game to shared preferences.
+     *
+     * @param correctAnswers The number of correct answers provided by the user.
+     * @param totalQuestions The total number of questions asked in the game.
+     */
     private fun saveStatistics(correctAnswers: Int, totalQuestions: Int) {
         val sharedPreferences = getSharedPreferences("CognitiveAssessmentApp", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()

@@ -15,6 +15,9 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.util.Calendar
 
+/**
+ * Activity for the "Basic Questions" game where users answer basic personal and temporal questions.
+ */
 class BasicQuestions : AppCompatActivity() {
 
     private lateinit var nameInput: EditText
@@ -27,6 +30,13 @@ class BasicQuestions : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
 
+    /**
+     * Called when the activity is first created. Initializes the UI elements and sets up
+     * the Firebase authentication and database references.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down
+     *                           then this Bundle contains the data it most recently supplied. Note: Otherwise it is null.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_basic_questions)
@@ -56,6 +66,9 @@ class BasicQuestions : AppCompatActivity() {
         }
     }
 
+    /**
+     * Fetches the user's name from the Firebase database and sets it in the name input field.
+     */
     private fun fetchUserName() {
         val userId = auth.currentUser?.uid
         userId?.let {
@@ -65,6 +78,12 @@ class BasicQuestions : AppCompatActivity() {
         }
     }
 
+    /**
+     * Displays a date picker dialog for the user to select a date.
+     *
+     * @param editText The EditText field to set the selected date.
+     * @param isTodayDate Boolean indicating if the selected date is today's date.
+     */
     private fun showDatePickerDialog(editText: EditText, isTodayDate: Boolean) {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -82,6 +101,9 @@ class BasicQuestions : AppCompatActivity() {
         datePickerDialog.show()
     }
 
+    /**
+     * Checks the user's answers against the correct answers and calculates the score.
+     */
     private fun checkAnswers() {
         var correctAnswers = 0
 
@@ -126,6 +148,12 @@ class BasicQuestions : AppCompatActivity() {
         startActivity(intent)
     }
 
+    /**
+     * Calculates the user's age based on the birthdate.
+     *
+     * @param birthdate The user's birthdate in "yyyy-MM-dd" format.
+     * @return The calculated age.
+     */
     private fun calculateAge(birthdate: String): Int {
         val parts = birthdate.split("-")
         if (parts.size != 3) {
@@ -146,6 +174,12 @@ class BasicQuestions : AppCompatActivity() {
         return age
     }
 
+    /**
+     * Saves the statistics of the "Basic Questions" game to shared preferences.
+     *
+     * @param correctAnswers The number of correct answers provided by the user.
+     * @param totalQuestions The total number of questions asked in the game.
+     */
     private fun saveStatistics(correctAnswers: Int, totalQuestions: Int) {
         val sharedPreferences = getSharedPreferences("CognitiveAssessmentApp", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
@@ -154,8 +188,3 @@ class BasicQuestions : AppCompatActivity() {
         editor.apply()
     }
 }
-
-
-//nie zeruje sie data
-//deletetotal animal points
-//total remember words should be 3 pounts

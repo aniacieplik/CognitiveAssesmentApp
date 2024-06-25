@@ -12,12 +12,22 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
+/**
+ * Activity for displaying and saving statistics of the MIS games.
+ */
 class StatisticsMIS : AppCompatActivity() {
 
     private lateinit var pointsTextView: TextView
     private lateinit var possiblePointsTextView: TextView
     private lateinit var returnButton: Button
 
+    /**
+     * Called when the activity is first created. Initializes the UI elements and sets up
+     * the return button's click listener.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down
+     *                           then this Bundle contains the data it most recently supplied. Note: Otherwise it is null.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_statistics_mis)
@@ -37,6 +47,12 @@ class StatisticsMIS : AppCompatActivity() {
         }
     }
 
+    /**
+     * Saves the statistics of the MIS games to Firebase Firestore.
+     *
+     * @param points The points scored by the user.
+     * @param totalPossiblePoints The total possible points in the game.
+     */
     private fun saveMISStatisticsToFirebase(points: Int, totalPossiblePoints: Int) {
         val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
         val db = FirebaseFirestore.getInstance()
@@ -71,7 +87,6 @@ class StatisticsMIS : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
         }
     }
 }

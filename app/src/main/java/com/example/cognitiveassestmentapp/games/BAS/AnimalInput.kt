@@ -11,6 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.cognitiveassestmentapp.R
 import com.example.cognitiveassestmentapp.statistics.StatisticsBAS
 
+/**
+ * Activity for the "Animal Input" game where users are required to input as many animal names
+ * as they can within a given time frame.
+ */
 class AnimalInput : AppCompatActivity() {
 
     private lateinit var timerTextView: TextView
@@ -20,6 +24,13 @@ class AnimalInput : AppCompatActivity() {
 
     private var timer: CountDownTimer? = null
 
+    /**
+     * Called when the activity is first created. Initializes the UI elements and sets up
+     * the start button's click listener.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down
+     *                           then this Bundle contains the data it most recently supplied. Note: Otherwise it is null.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_animal_input)
@@ -38,6 +49,10 @@ class AnimalInput : AppCompatActivity() {
         }
     }
 
+    /**
+     * Starts the countdown timer for the game. Updates the timer TextView each second and
+     * handles the end of the timer.
+     */
     private fun startTimer() {
         timer = object : CountDownTimer(30000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
@@ -55,6 +70,10 @@ class AnimalInput : AppCompatActivity() {
         }.start()
     }
 
+    /**
+     * Calculates the points based on the number of animal names entered by the user.
+     * Saves the total points to shared preferences.
+     */
     private fun calculatePoints() {
         val animals = animalInputEditText.text.toString().trim()
         val animalList = animals.split("\\s+".toRegex()).filter { it.isNotEmpty() }
@@ -69,11 +88,17 @@ class AnimalInput : AppCompatActivity() {
         }
     }
 
+    /**
+     * Navigates to the statistics activity to display the game results.
+     */
     private fun navigateToStatistics() {
         val intent = Intent(this, StatisticsBAS::class.java)
         startActivity(intent)
     }
 
+    /**
+     * Called when the activity is destroyed. Cancels the timer if it is still running.
+     */
     override fun onDestroy() {
         super.onDestroy()
         timer?.cancel()

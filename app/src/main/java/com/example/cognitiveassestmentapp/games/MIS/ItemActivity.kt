@@ -14,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.cognitiveassestmentapp.R
 import com.example.cognitiveassestmentapp.registration.MenuActivity
 
+/**
+ * Activity for the "Item" game where users match words with their corresponding categories.
+ */
 class ItemActivity : AppCompatActivity() {
 
     private val words = listOf(
@@ -30,6 +33,13 @@ class ItemActivity : AppCompatActivity() {
     private var incorrectGuesses = 0
     private val maxIncorrectGuesses = 5
 
+    /**
+     * Called when the activity is first created. Initializes the UI elements and sets up
+     * the listeners for the word and category text views.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down
+     *                           then this Bundle contains the data it most recently supplied. Note: Otherwise it is null.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item)
@@ -54,9 +64,6 @@ class ItemActivity : AppCompatActivity() {
 
         words.forEachIndexed { index, pair ->
             wordTextViews[index].text = pair.first
-        }
-
-        words.forEachIndexed { index, pair ->
             categoryTextViews[index].text = pair.second
         }
 
@@ -117,6 +124,15 @@ class ItemActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Checks if the selected word and category match. Updates the UI accordingly and handles incorrect guesses.
+     *
+     * @param wordIndex The index of the selected word.
+     * @param categoryIndex The index of the selected category.
+     * @param wordTextViews List of TextViews displaying the words.
+     * @param categoryTextViews List of TextViews displaying the categories.
+     * @param finishButton The button to finish the activity.
+     */
     private fun checkMatch(wordIndex: Int, categoryIndex: Int, wordTextViews: List<TextView>, categoryTextViews: List<TextView>, finishButton: Button) {
         val (word, category) = words[wordIndex]
         if (categoryTextViews[categoryIndex].text == category) {
@@ -153,6 +169,9 @@ class ItemActivity : AppCompatActivity() {
         selectedCategoryIndex = null
     }
 
+    /**
+     * Shows a completion message when the user successfully matches all words and categories.
+     */
     private fun showCompletionMessage() {
         val messageTextView = TextView(this).apply {
             text = "Task completed successfully. Please remember those words"
@@ -188,6 +207,9 @@ class ItemActivity : AppCompatActivity() {
         rootLayout.addView(messageContainer)
     }
 
+    /**
+     * Shows a failure message when the user reaches the maximum number of incorrect guesses.
+     */
     private fun showFailureMessage() {
         val messageTextView = TextView(this).apply {
             text = "Test failed. You've reached the maximum incorrect guesses."
@@ -223,6 +245,9 @@ class ItemActivity : AppCompatActivity() {
         rootLayout.addView(messageContainer)
     }
 
+    /**
+     * Extension property to get the current background color of a TextView.
+     */
     private val TextView.currentBackgroundColor: Int
         get() {
             val drawable = background
