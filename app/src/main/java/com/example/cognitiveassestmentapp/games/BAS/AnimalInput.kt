@@ -1,5 +1,6 @@
 package com.example.cognitiveassestmentapp.games.BAS
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -18,16 +19,10 @@ class AnimalInput : AppCompatActivity() {
     private lateinit var resultTextView: TextView
 
     private var timer: CountDownTimer? = null
-    private var spellPoints: Int = 0
-    private var rememberPoints: Int = 0
-    private var animalPoints: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_animal_input)
-
-        spellPoints = intent.getIntExtra("SPELL_POINTS", 0)
-        rememberPoints = intent.getIntExtra("REMEMBER_POINTS", 0)
 
         timerTextView = findViewById(R.id.timerTextView)
         animalInputEditText = findViewById(R.id.animalInputEditText)
@@ -63,15 +58,19 @@ class AnimalInput : AppCompatActivity() {
     private fun calculatePoints() {
         val animals = animalInputEditText.text.toString().trim()
         val animalList = animals.split("\\s+".toRegex()).filter { it.isNotEmpty() }
-        animalPoints = animalList.size
+        val animalPoints = animalList.size
+
+        val sharedPreferences = getSharedPreferences("CognitiveAssessmentApp", Context.MODE_PRIVATE)
+        val totalAnimalPoints = sharedPreferences.getInt("totalAnimalPoints", 0) + animalPoints
+
+        with(sharedPreferences.edit()) {
+            putInt("totalAnimalPoints", totalAnimalPoints)
+            apply()
+        }
     }
 
     private fun navigateToStatistics() {
-        val intent = Intent(this, StatisticsBAS::class.java).apply {
-            putExtra("SPELL_POINTS", spellPoints)
-            putExtra("REMEMBER_POINTS", rememberPoints)
-            putExtra("ANIMAL_POINTS", animalPoints)
-        }
+        val intent = Intent(this, StatisticsBAS::class.java)
         startActivity(intent)
     }
 

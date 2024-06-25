@@ -94,6 +94,10 @@
         android:layout_height="wrap_content"
         android:text="Total Sentence Again Questions: " />
 
-    <!-- Add more TextViews for other tests here -->
 
+    <Button
+        android:id="@+id/returnButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return to Main Menu" />
 </LinearLayout>

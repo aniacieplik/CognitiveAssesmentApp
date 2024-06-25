@@ -1,10 +1,14 @@
 package com.example.cognitiveassestmentapp.statistics
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cognitiveassestmentapp.R
+import com.example.cognitiveassestmentapp.registration.MenuActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -16,6 +20,7 @@ class StatisticsBAS : AppCompatActivity() {
     private lateinit var totalRememberPointsTextView: TextView
     private lateinit var animalPointsTextView: TextView
     private lateinit var totalAnimalPointsTextView: TextView
+    private lateinit var returnButton: Button
 
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
@@ -33,26 +38,19 @@ class StatisticsBAS : AppCompatActivity() {
         totalRememberPointsTextView = findViewById(R.id.totalRememberPointsTextView)
         animalPointsTextView = findViewById(R.id.animalPointsTextView)
         totalAnimalPointsTextView = findViewById(R.id.totalAnimalPointsTextView)
+        returnButton = findViewById(R.id.returnButton)
 
-        val sharedPreferences = getSharedPreferences("CognitiveAssessmentApp", Context.MODE_PRIVATE)
-        val spellPoints = intent.getIntExtra("SPELL_POINTS", 0)
-        val rememberPoints = intent.getIntExtra("REMEMBER_POINTS", 0)
-        val animalPoints = intent.getIntExtra("ANIMAL_POINTS", 0)
-
-        val totalSpellPoints = sharedPreferences.getInt("totalSpellPoints", 0) + spellPoints
-        val totalRememberPoints = sharedPreferences.getInt("totalRememberPoints", 0) + rememberPoints
-        val totalAnimalPoints = sharedPreferences.getInt("totalAnimalPoints", 0) + animalPoints
-
-        with(sharedPreferences.edit()) {
-            putInt("totalSpellPoints", totalSpellPoints)
-            putInt("totalRememberPoints", totalRememberPoints)
-            putInt("totalAnimalPoints", totalAnimalPoints)
-            apply()
+        returnButton.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
         }
 
-        saveStatisticsToFirebase(spellPoints, totalSpellPoints, rememberPoints, totalRememberPoints, animalPoints, totalAnimalPoints)
+        val sharedPreferences = getSharedPreferences("CognitiveAssessmentApp", Context.MODE_PRIVATE)
+        val totalSpellPoints = sharedPreferences.getInt("totalSpellPoints", 0)
+        val totalRememberPoints = sharedPreferences.getInt("totalRememberPoints", 0)
+        val totalAnimalPoints = sharedPreferences.getInt("totalAnimalPoints", 0)
 
-        displayStatistics(spellPoints, totalSpellPoints, rememberPoints, totalRememberPoints, animalPoints, totalAnimalPoints)
+        displayStatistics(totalSpellPoints, totalRememberPoints, totalAnimalPoints)
     }
 
     private fun saveStatisticsToFirebase(
@@ -75,22 +73,25 @@ class StatisticsBAS : AppCompatActivity() {
 
             userStatisticsRef.document(attemptId).set(statistics)
                 .addOnSuccessListener {
-                    // Handle success
+                    Toast.makeText(this, "Statistics saved successfully.", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener { e ->
-                    // Handle failure
+                    Toast.makeText(this, "Failed to save statistics: ${e.message}", Toast.LENGTH_LONG).show()
                 }
+        }.addOnFailureListener { e ->
+            Toast.makeText(this, "Failed to retrieve attempts: ${e.message}", Toast.LENGTH_LONG).show()
         }
     }
 
-    private fun displayStatistics(
-        spellPoints: Int, totalSpellPoints: Int, rememberPoints: Int, totalRememberPoints: Int, animalPoints: Int, totalAnimalPoints: Int
-    ) {
-        spellPointsTextView.text = "Spell Words Backwards Points: $spellPoints"
+    private fun displayStatistics(totalSpellPoints: Int, totalRememberPoints: Int, totalAnimalPoints: Int) {
+        spellPointsTextView.text = "Spell Words Backwards Points: $totalSpellPoints"
+        rememberPointsTextView.text = "Remember Words Points: $totalRememberPoints"
+        animalPointsTextView.text = "Animal Points: $totalAnimalPoints"
+
         totalSpellPointsTextView.text = "Total Spell Words Backwards Points: $totalSpellPoints"
-        rememberPointsTextView.text = "Remember Words Points: $rememberPoints"
         totalRememberPointsTextView.text = "Total Remember Words Points: $totalRememberPoints"
-        animalPointsTextView.text = "Animal Points: $animalPoints"
         totalAnimalPointsTextView.text = "Total Animal Points: $totalAnimalPoints"
+
+        saveStatisticsToFirebase(totalSpellPoints, totalSpellPoints, totalRememberPoints, totalRememberPoints, totalAnimalPoints, totalAnimalPoints)
     }
 }

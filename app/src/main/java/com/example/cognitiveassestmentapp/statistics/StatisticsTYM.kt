@@ -1,10 +1,14 @@
 package com.example.cognitiveassestmentapp.statistics
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cognitiveassestmentapp.R
+import com.example.cognitiveassestmentapp.registration.MenuActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -24,6 +28,7 @@ class StatisticsTYM : AppCompatActivity() {
     private lateinit var totalComparisonQuestionsTextView: TextView
     private lateinit var sentenceAgainCorrectAnswersTextView: TextView
     private lateinit var totalSentenceAgainQuestionsTextView: TextView
+    private lateinit var returnButton: Button
 
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
@@ -49,6 +54,12 @@ class StatisticsTYM : AppCompatActivity() {
         totalComparisonQuestionsTextView = findViewById(R.id.totalComparisonQuestionsTextView)
         sentenceAgainCorrectAnswersTextView = findViewById(R.id.sentenceAgainCorrectAnswersTextView)
         totalSentenceAgainQuestionsTextView = findViewById(R.id.totalSentenceAgainQuestionsTextView)
+        returnButton = findViewById(R.id.returnButton)
+
+        returnButton.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+        }
 
         val sharedPreferences = getSharedPreferences("CognitiveAssessmentApp", Context.MODE_PRIVATE)
         val basicCorrectAnswers = sharedPreferences.getInt("basicCorrectAnswers", 0)
@@ -108,11 +119,13 @@ class StatisticsTYM : AppCompatActivity() {
 
             userStatisticsRef.document(attemptId).set(statistics)
                 .addOnSuccessListener {
-                    // Handle success
+                    Toast.makeText(this, "Statistics saved successfully.", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener { e ->
-                    // Handle failure
+                    Toast.makeText(this, "Failed to save statistics: ${e.message}", Toast.LENGTH_LONG).show()
                 }
+        }.addOnFailureListener { e ->
+            Toast.makeText(this, "Failed to retrieve attempts: ${e.message}", Toast.LENGTH_LONG).show()
         }
     }
 
