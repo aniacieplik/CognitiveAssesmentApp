@@ -31,7 +31,6 @@ class MenuActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        // Initialize click listeners for each button in the menu
         findViewById<View>(R.id.tymtest).setOnClickListener(this)
         findViewById<View>(R.id.mistest).setOnClickListener(this)
         findViewById<View>(R.id.bastest).setOnClickListener(this)

@@ -1,121 +1,99 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_freerecall"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/instruction_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Instructions"
         android:textSize="18sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:paddingBottom="16dp" />
 
     <TextView
         android:id="@+id/timertextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_below="@id/instruction_textview"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:text="Time remaining: 60s"
+        android:textSize="16sp"
+        android:paddingBottom="16dp" />
 
     <EditText
         android:id="@+id/word1edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Word 1"
-        android:layout_below="@id/timertextview"
-        android:layout_marginTop="16dp" />
+        android:hint="Word 1" />
+
+    <TextView
+        android:id="@+id/hint1textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp" />
 
     <EditText
         android:id="@+id/word2edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Word 2"
-        android:layout_below="@id/word1edittext"
-        android:layout_marginTop="16dp" />
+        android:hint="Word 2" />
+
+    <TextView
+        android:id="@+id/hint2textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp" />
 
     <EditText
         android:id="@+id/word3edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Word 3"
-        android:layout_below="@id/word2edittext"
-        android:layout_marginTop="16dp" />
+        android:hint="Word 3" />
+
+    <TextView
+        android:id="@+id/hint3textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp" />
 
     <EditText
         android:id="@+id/word4edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Word 4"
-        android:layout_below="@id/word3edittext"
-        android:layout_marginTop="16dp" />
-
-    <TextView
-        android:id="@+id/hint1textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_below="@id/word4edittext"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"/>
-
-    <TextView
-        android:id="@+id/hint2textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_below="@id/hint1textview"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"/>
-
-    <TextView
-        android:id="@+id/hint3textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_below="@id/hint2textview"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"/>
+        android:hint="Word 4" />
 
     <TextView
         android:id="@+id/hint4textview"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_below="@id/hint3textview"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"/>
+        android:paddingBottom="8dp" />
 
     <Button
         android:id="@+id/start_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/hint4textview"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="162dp"
-        android:text="Start" />
+        android:text="Start"
+        android:background="@color/pink"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/finish_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Finish"
-        android:layout_below="@id/start_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:background="@color/pink"
+        android:textColor="@android:color/white"
+        android:enabled="false" />
 
     <Button
         android:id="@+id/next_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/pink"
+        android:enabled="false"
         android:text="Next"
-        android:layout_below="@id/finish_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:enabled="false"/>
+        android:textColor="@android:color/white" />
 
-</RelativeLayout>
+</LinearLayout>

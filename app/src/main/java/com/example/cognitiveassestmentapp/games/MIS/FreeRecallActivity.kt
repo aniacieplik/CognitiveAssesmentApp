@@ -7,9 +7,9 @@ import android.os.CountDownTimer
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cognitiveassestmentapp.R
+import com.example.cognitiveassestmentapp.statistics.StatisticsMIS
 
 class FreeRecallActivity : AppCompatActivity() {
 
@@ -41,7 +41,7 @@ class FreeRecallActivity : AppCompatActivity() {
         startButton = findViewById(R.id.start_button)
         finishButton = findViewById(R.id.finish_button)
         nextButton = findViewById(R.id.next_button)
-        nextButton.isEnabled = false // Next button initially disabled
+        nextButton.isEnabled = false
 
         instructionTextView.text =
             "Please state as many of the 4 words you can recall, you have a minute."
@@ -60,12 +60,10 @@ class FreeRecallActivity : AppCompatActivity() {
             findViewById(R.id.hint4textview)
         )
 
-        // Initialize hint TextViews background to transparent
         hintTextViews.forEach { textView ->
             textView.text = ""
         }
 
-        // Disable word EditTexts initially
         wordEditTexts.forEach { editText ->
             editText.isEnabled = false
         }
@@ -90,8 +88,7 @@ class FreeRecallActivity : AppCompatActivity() {
         }
 
         nextButton.setOnClickListener {
-            // Start StatisticsMisActivity and pass points data
-            val intent = Intent(this, StatisticsMisActivity::class.java)
+            val intent = Intent(this, StatisticsMIS::class.java)
             intent.putExtra("points", points)
             startActivity(intent)
             finish()
@@ -128,7 +125,7 @@ class FreeRecallActivity : AppCompatActivity() {
             val userAnswer = editText.text.toString()
             if (userAnswer in correctWords && userAnswer !in guessedWords) {
                 guessedWords.add(userAnswer)
-                points += 2 // 2 points for guessing the word correctly
+                points += 2
             }
         }
 
@@ -143,7 +140,7 @@ class FreeRecallActivity : AppCompatActivity() {
                         val correctIndex = correctWords.indexOf(it)
                         hintTextViews[index].text = "Hint: ${words[correctIndex].second}"
                         hintTextViews[index].setTextColor(Color.RED)
-                        points += 1 // 1 point for guessing the word after hint is shown
+                        points += 1
                     }
                 }
             } else {
