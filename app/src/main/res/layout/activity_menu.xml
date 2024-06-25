@@ -61,4 +61,16 @@
         android:layout_below="@id/mistest"
         android:layout_marginBottom="16dp"/>
 
+    <Button
+        android:id="@+id/view_statistics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Statistics"
+        android:backgroundTint="#DD6587"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:layout_below="@id/bastest"
+        android:layout_marginBottom="16dp"/>
+
 </RelativeLayout>

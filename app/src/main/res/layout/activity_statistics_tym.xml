@@ -1,104 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Statistics:" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_image"
+        />
 
-    <TextView
-        android:id="@+id/basicCorrectAnswersTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correct Answers for Basic Questions: " />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/totalBasicQuestionsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Basic Questions: " />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Statistics:" />
 
-    <TextView
-        android:id="@+id/copySentenceCorrectAnswersTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correct Answers for Copy Sentence: " />
+        <TextView
+            android:id="@+id/basicCorrectAnswersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correct Answers for Basic Questions: " />
 
-    <TextView
-        android:id="@+id/totalCopySentenceQuestionsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Copy Sentence Questions: " />
+        <TextView
+            android:id="@+id/totalBasicQuestionsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Basic Questions: " />
 
-    <TextView
-        android:id="@+id/questionsCorrectAnswersTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correct Answers for General Questions: " />
+        <TextView
+            android:id="@+id/copySentenceCorrectAnswersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correct Answers for Copy Sentence: " />
 
-    <TextView
-        android:id="@+id/totalGeneralQuestionsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total General Questions: " />
+        <TextView
+            android:id="@+id/totalCopySentenceQuestionsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Copy Sentence Questions: " />
 
-    <TextView
-        android:id="@+id/mathCorrectAnswersTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correct Answers for Math: " />
+        <TextView
+            android:id="@+id/questionsCorrectAnswersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correct Answers for General Questions: " />
 
-    <TextView
-        android:id="@+id/totalMathQuestionsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Math Questions: " />
+        <TextView
+            android:id="@+id/totalGeneralQuestionsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total General Questions: " />
 
-    <TextView
-        android:id="@+id/animalsCorrectAnswersTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correct Answers for Animals: " />
+        <TextView
+            android:id="@+id/mathCorrectAnswersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correct Answers for Math: " />
 
-    <TextView
-        android:id="@+id/totalAnimalsQuestionsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Animal Questions: " />
+        <TextView
+            android:id="@+id/totalMathQuestionsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Math Questions: " />
 
-    <TextView
-        android:id="@+id/comparisonCorrectAnswersTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correct Answers for Comparisons: " />
+        <TextView
+            android:id="@+id/animalsCorrectAnswersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correct Answers for Animals: " />
 
-    <TextView
-        android:id="@+id/totalComparisonQuestionsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Comparison Questions: " />
+        <TextView
+            android:id="@+id/totalAnimalsQuestionsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Animal Questions: " />
 
-    <TextView
-        android:id="@+id/sentenceAgainCorrectAnswersTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correct Answers for Sentence Again: " />
+        <TextView
+            android:id="@+id/comparisonCorrectAnswersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correct Answers for Comparisons: " />
 
-    <TextView
-        android:id="@+id/totalSentenceAgainQuestionsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Sentence Again Questions: " />
+        <TextView
+            android:id="@+id/totalComparisonQuestionsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Comparison Questions: " />
 
+        <TextView
+            android:id="@+id/sentenceAgainCorrectAnswersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correct Answers for Sentence Again: " />
 
-    <Button
-        android:id="@+id/returnButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#DD6587"
-        android:text="Return to Main Menu" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/totalSentenceAgainQuestionsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Sentence Again Questions: " />
+
+        <Button
+            android:id="@+id/returnButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#DD6587"
+            android:text="Return to Main Menu" />
+    </LinearLayout>
+
+</FrameLayout>

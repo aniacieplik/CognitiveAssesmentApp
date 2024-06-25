@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CognitiveAssestmentApp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".statistics.UltimateStatistics"
+            android:exported="false" />
         <activity
             android:name=".statistics.StatisticsBAS"
             android:exported="false" />

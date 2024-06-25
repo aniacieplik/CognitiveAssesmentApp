@@ -1,49 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/spellPointsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Spell Words Backwards Points: 0"
-        android:textSize="18sp" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_image" />
 
-    <TextView
-        android:id="@+id/totalSpellPointsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Spell Words Backwards Points: 0"
-        android:textSize="18sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/rememberPointsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Remember Words Points: 0"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/spellPointsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Spell Words Backwards Points: 0"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/totalRememberPointsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Remember Words Points: 0"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/totalSpellPointsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Spell Words Backwards Points: 0"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/animalPointsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Animal Points: 0"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/rememberPointsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remember Words Points: 0"
+            android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/returnButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#DD6578"
-        android:text="Return to Main Menu" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/totalRememberPointsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Remember Words Points: 0"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/animalPointsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Animal Points: 0"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/returnButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#DD6578"
+            android:text="Return to Main Menu" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -14,7 +14,7 @@ class MisActivity : AppCompatActivity() {
 
         val startButton = findViewById<Button>(R.id.start_mis_button)
         startButton.setOnClickListener {
-            startActivity(Intent(this, FreeRecallActivity::class.java))
+            startActivity(Intent(this, ItemActivity::class.java))
         }
     }
 }
