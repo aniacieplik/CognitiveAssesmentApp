@@ -154,3 +154,8 @@ class BasicQuestions : AppCompatActivity() {
         editor.apply()
     }
 }
+
+
+//nie zeruje sie data
+//deletetotal animal points
+//total remember words should be 3 pounts

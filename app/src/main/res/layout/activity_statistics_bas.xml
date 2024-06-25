@@ -40,13 +40,6 @@
         android:text="Animal Points: 0"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/totalAnimalPointsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Animal Points: 0"
-        android:textSize="18sp" />
-
     <Button
         android:id="@+id/returnButton"
         android:layout_width="wrap_content"

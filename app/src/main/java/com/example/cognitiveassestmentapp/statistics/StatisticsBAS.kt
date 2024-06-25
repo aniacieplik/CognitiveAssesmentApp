@@ -37,7 +37,6 @@ class StatisticsBAS : AppCompatActivity() {
         rememberPointsTextView = findViewById(R.id.rememberPointsTextView)
         totalRememberPointsTextView = findViewById(R.id.totalRememberPointsTextView)
         animalPointsTextView = findViewById(R.id.animalPointsTextView)
-        totalAnimalPointsTextView = findViewById(R.id.totalAnimalPointsTextView)
         returnButton = findViewById(R.id.returnButton)
 
         returnButton.setOnClickListener {
