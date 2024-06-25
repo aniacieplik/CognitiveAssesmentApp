@@ -13,11 +13,15 @@ class RememberWordsInput : AppCompatActivity() {
     private lateinit var word2EditText: EditText
     private lateinit var word3EditText: EditText
     private lateinit var submitButton: Button
-    private var points: Int = 0
+    private var spellPoints: Int = 0
+    private var rememberPoints: Int = 0
+    private val correctWords = listOf("APPLE", "TABLE", "PENNY")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_remember_words_input)
+
+        spellPoints = intent.getIntExtra("SPELL_POINTS", 0)
 
         word1EditText = findViewById(R.id.word1EditText)
         word2EditText = findViewById(R.id.word2EditText)
@@ -29,14 +33,11 @@ class RememberWordsInput : AppCompatActivity() {
             val word2Input = word2EditText.text.toString().trim().uppercase()
             val word3Input = word3EditText.text.toString().trim().uppercase()
 
-            val correctWords = listOf("APPLE", "TABLE", "PENNY")
+            rememberPoints = listOf(word1Input, word2Input, word3Input).count { it in correctWords }
 
-            if (word1Input in correctWords) points++
-            if (word2Input in correctWords) points++
-            if (word3Input in correctWords) points++
-
-            val intent = Intent(this, StatisticsBAS::class.java).apply {
-                putExtra("POINTS", points)
+            val intent = Intent(this, AnimalInput::class.java).apply {
+                putExtra("SPELL_POINTS", spellPoints)
+                putExtra("REMEMBER_POINTS", rememberPoints)
             }
             startActivity(intent)
         }

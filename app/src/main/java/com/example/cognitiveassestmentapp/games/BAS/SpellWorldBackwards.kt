@@ -11,7 +11,8 @@ class SpellWorldBackwards : AppCompatActivity() {
 
     private lateinit var inputEditText: EditText
     private lateinit var submitButton: Button
-    private var points: Int = 0
+    private var spellPoints: Int = 0
+    private val correctAnswer = "DLROW"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,15 +22,12 @@ class SpellWorldBackwards : AppCompatActivity() {
         submitButton = findViewById(R.id.submitButton)
 
         submitButton.setOnClickListener {
-            val userInput = inputEditText.text.toString().trim()
-            val correctAnswer = "DLROW"
+            val userInput = inputEditText.text.toString().trim().uppercase()
 
-            if (userInput.equals(correctAnswer, ignoreCase = true)) {
-                points++
-            }
+            spellPoints = userInput.indices.count { i -> i < correctAnswer.length && userInput[i] == correctAnswer[i] }
 
             val intent = Intent(this, RememberWordsInput::class.java).apply {
-                putExtra("POINTS", points)
+                putExtra("SPELL_POINTS", spellPoints)
             }
             startActivity(intent)
         }

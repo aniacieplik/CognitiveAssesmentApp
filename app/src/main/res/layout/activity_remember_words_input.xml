@@ -3,55 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center_horizontal">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/promptTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter the three words you were asked to remember:"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp" />
+        android:text="Enter the words you remember:"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/word1EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="First word"
-        android:inputType="text"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp" />
+        android:hint="Word 1" />
 
     <EditText
         android:id="@+id/word2EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Second word"
-        android:inputType="text"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp" />
+        android:hint="Word 2" />
 
     <EditText
         android:id="@+id/word3EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Third word"
-        android:inputType="text"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp" />
+        android:hint="Word 3" />
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit" />
-
-    <TextView
-        android:id="@+id/resultTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="18sp"
-        android:layout_marginTop="16dp" />
 </LinearLayout>

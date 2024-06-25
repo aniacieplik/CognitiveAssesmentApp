@@ -6,9 +6,44 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/pointsTextView"
+        android:id="@+id/spellPointsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Points: 0"
+        android:text="Spell Words Backwards Points: 0"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/totalSpellPointsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Spell Words Backwards Points: 0"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/rememberPointsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember Words Points: 0"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/totalRememberPointsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Remember Words Points: 0"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/animalPointsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Animal Points: 0"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/totalAnimalPointsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Animal Points: 0"
         android:textSize="18sp" />
 </LinearLayout>
