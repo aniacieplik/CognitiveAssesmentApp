@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".games.TYM.SentenceAgain">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
@@ -34,7 +34,8 @@
             android:layout_below="@id/userInputEditText"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="16dp"
-            android:text="Submit"/>
+            android:backgroundTint="#DD6578"
+            android:text="Submit" />
 
     </RelativeLayout>
 
