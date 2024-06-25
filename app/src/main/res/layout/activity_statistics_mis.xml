@@ -13,6 +13,15 @@
         android:gravity="center"
         android:layout_margin="16dp" />
 
+    <TextView
+        android:id="@+id/possible_points_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_margin="16dp" />
+
     <Button
         android:id="@+id/return_button"
         android:layout_width="wrap_content"

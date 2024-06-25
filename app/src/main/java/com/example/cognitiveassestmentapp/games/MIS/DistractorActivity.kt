@@ -20,7 +20,6 @@ class DistractorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_distractor)
 
-        val instructionTextView: TextView = findViewById(R.id.instruction_textview)
         val hintTextView: TextView = findViewById(R.id.hint_textview)
         val answerEditText: EditText = findViewById(R.id.answer_edittext)
         val submitButton: Button = findViewById(R.id.submit_button)
