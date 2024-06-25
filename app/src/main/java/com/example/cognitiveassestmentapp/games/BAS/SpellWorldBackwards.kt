@@ -1,5 +1,6 @@
 package com.example.cognitiveassestmentapp.games.BAS
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -11,7 +12,6 @@ class SpellWorldBackwards : AppCompatActivity() {
 
     private lateinit var inputEditText: EditText
     private lateinit var submitButton: Button
-    private var spellPoints: Int = 0
     private val correctAnswer = "DLROW"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,12 +23,17 @@ class SpellWorldBackwards : AppCompatActivity() {
 
         submitButton.setOnClickListener {
             val userInput = inputEditText.text.toString().trim().uppercase()
+            val spellPoints = userInput.indices.count { i -> i < correctAnswer.length && userInput[i] == correctAnswer[i] }
 
-            spellPoints = userInput.indices.count { i -> i < correctAnswer.length && userInput[i] == correctAnswer[i] }
+            val sharedPreferences = getSharedPreferences("CognitiveAssessmentApp", Context.MODE_PRIVATE)
+            val totalSpellPoints = sharedPreferences.getInt("totalSpellPoints", 0) + spellPoints
 
-            val intent = Intent(this, RememberWordsInput::class.java).apply {
-                putExtra("SPELL_POINTS", spellPoints)
+            with(sharedPreferences.edit()) {
+                putInt("totalSpellPoints", totalSpellPoints)
+                apply()
             }
+
+            val intent = Intent(this, RememberWordsInput::class.java)
             startActivity(intent)
         }
     }
